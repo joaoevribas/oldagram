@@ -3,3 +3,30 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.container {
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.logo,
+.user-avatar {
+  margin-bottom: 7px;
+}
+
+.logo {
+  width: 127px;
+}
+
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}

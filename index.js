@@ -31,43 +31,50 @@ const posts = [
 
 const mainEl = document.getElementById("main-el");
 
-for (let i = 0; i < posts.length; i++) {
-  mainEl.innerHTML += `<section class="post-section">
-  <div class="container">
-    <header class="post-header">
+function renderPostSections() {
+  let sections = "";
+
+  for (let i = 0; i < posts.length; i++) {
+    sections += `<section class="post-section">
+    <div class="container">
+      <header class="post-header">
+        <img
+          class="avatar post-avatar"
+          src="${posts[i].avatar}"
+          alt="van gogh avatar"
+        />
+        <div>
+          <p class="post-name">${posts[i].name}</p>
+          <p class="post-location">${posts[i].location}</p>
+        </div>
+      </header>
       <img
-        class="avatar post-avatar"
-        src="${posts[i].avatar}"
-        alt="van gogh avatar"
+        class="post-photo"
+        src="${posts[i].post}"
+        alt="van gogh photo"
       />
-      <div>
-        <p class="post-name">${posts[i].name}</p>
-        <p class="post-location">${posts[i].location}</p>
+      <div class="post-icons flex">
+        <img class="icon" src="images/icon-heart.png" alt="heart icon" />
+        <img
+          class="icon"
+          src="images/icon-comment.png"
+          alt="comment icon"
+        />
+        <img
+          class="icon"
+          src="images/icon-dm.png"
+          alt="direct message icon"
+        />
       </div>
-    </header>
-    <img
-      class="post-photo"
-      src="${posts[i].post}"
-      alt="van gogh photo"
-    />
-    <div class="post-icons flex">
-      <img class="icon" src="images/icon-heart.png" alt="heart icon" />
-      <img
-        class="icon"
-        src="images/icon-comment.png"
-        alt="comment icon"
-      />
-      <img
-        class="icon"
-        src="images/icon-dm.png"
-        alt="direct message icon"
-      />
+      <p class="post-likes">${posts[i].likes} likes</p>
+      <div class="post-username-comment flex">
+        <p class="post-username">${posts[i].username}</p>
+        <p class="post-comment">${posts[i].comment}</p>
+      </div>
     </div>
-    <p class="post-likes">${posts[i].likes} likes</p>
-    <div class="post-username-comment flex">
-      <p class="post-username">${posts[i].username}</p>
-      <p class="post-comment">${posts[i].comment}</p>
-    </div>
-  </div>
-</section>`;
+  </section>`;
+  }
+  mainEl.innerHTML += sections;
 }
+
+renderPostSections();

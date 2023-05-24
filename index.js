@@ -32,6 +32,7 @@ const posts = [
 const mainEl = document.getElementById("main-el");
 const postPhotoEl = document.getElementsByClassName("post-photo");
 const postLikesEl = document.getElementsByClassName("post-likes");
+const iconHeartEl = document.getElementsByClassName("icon-heart");
 
 // render posts
 function renderPostSections() {
@@ -57,7 +58,7 @@ function renderPostSections() {
         alt="${posts[i].name} photo"
       />
       <div class="post-icons flex">
-        <img class="icon" src="images/icon-heart.png" alt="heart icon" />
+        <img class="icon icon-heart" src="images/icon-heart.png" alt="heart icon" />
         <img
           class="icon"
           src="images/icon-comment.png"
@@ -82,11 +83,16 @@ function renderPostSections() {
 renderPostSections();
 
 // EVENT LISTENERS
-
-// increase likes when double clicking post photos
 for (let i = 0; i < posts.length; i++) {
+  // increase likes when double clicking post photos
   postPhotoEl[i].addEventListener("dblclick", function () {
-    let likes = ++posts[i].likes;
-    postLikesEl[i].textContent = `${likes} likes`;
+    let photoLikes = ++posts[i].likes;
+    postLikesEl[i].textContent = `${photoLikes} likes`;
+  });
+
+  // increase likes when clicking heart icon
+  iconHeartEl[i].addEventListener("click", function () {
+    let heartLikes = ++posts[i].likes;
+    postLikesEl[i].textContent = `${heartLikes} likes`;
   });
 }

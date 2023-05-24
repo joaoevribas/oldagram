@@ -31,6 +31,7 @@ const posts = [
 
 const mainEl = document.getElementById("main-el");
 
+// render posts
 function renderPostSections() {
   let sections = "";
 
@@ -41,7 +42,7 @@ function renderPostSections() {
         <img
           class="avatar post-avatar"
           src="${posts[i].avatar}"
-          alt="van gogh avatar"
+          alt="${posts[i].name} avatar"
         />
         <div>
           <p class="post-name">${posts[i].name}</p>
@@ -51,7 +52,7 @@ function renderPostSections() {
       <img
         class="post-photo"
         src="${posts[i].post}"
-        alt="van gogh photo"
+        alt="${posts[i].name} photo"
       />
       <div class="post-icons flex">
         <img class="icon" src="images/icon-heart.png" alt="heart icon" />

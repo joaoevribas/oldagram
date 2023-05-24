@@ -6,7 +6,7 @@ const posts = [
     avatar: "images/avatar-vangogh.jpg",
     post: "images/post-vangogh.jpg",
     comment: "just took a few mushrooms lol",
-    likes: 21,
+    likes: 0,
   },
   {
     name: "Gustave Courbet",
@@ -15,7 +15,7 @@ const posts = [
     avatar: "images/avatar-courbet.jpg",
     post: "images/post-courbet.jpg",
     comment: "i'm feelin a bit stressed tbh",
-    likes: 4,
+    likes: 0,
   },
   {
     name: "Joseph Ducreux",
@@ -25,11 +25,13 @@ const posts = [
     post: "images/post-ducreux.jpg",
     comment:
       "gm friends! which coin are YOU stacking up today?? post below and WAGMI!",
-    likes: 152,
+    likes: 0,
   },
 ];
 
 const mainEl = document.getElementById("main-el");
+const postPhotoEl = document.getElementsByClassName("post-photo");
+const postLikesEl = document.getElementsByClassName("post-likes");
 
 // render posts
 function renderPostSections() {
@@ -77,5 +79,14 @@ function renderPostSections() {
   }
   mainEl.innerHTML += sections;
 }
-
 renderPostSections();
+
+// EVENT LISTENERS
+
+// increase likes when double clicking post photos
+for (let i = 0; i < posts.length; i++) {
+  postPhotoEl[i].addEventListener("dblclick", function () {
+    let likes = ++posts[i].likes;
+    postLikesEl[i].textContent = `${likes} likes`;
+  });
+}
